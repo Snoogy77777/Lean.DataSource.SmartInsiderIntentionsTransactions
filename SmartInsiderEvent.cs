@@ -251,7 +251,7 @@ namespace QuantConnect.DataSource
             AnnouncedIn = string.IsNullOrWhiteSpace(tsv[25]) ? null : tsv[25];
 
             // Value is never null. Use as time index.
-            Time = TimeProcessedUtc.Value;
+            Time = LastUpdate;
         }
 
         /// <summary>

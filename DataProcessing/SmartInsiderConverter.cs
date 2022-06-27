@@ -389,7 +389,7 @@ namespace QuantConnect.DataProcessing
         /// <param name="data">Base class data</param>
         private void ProcessUniverse(string tickerInfo, SmartInsiderIntention data)
         {
-            var date = $"{data.TimeProcessedUtc:yyyyMMdd}";
+            var date = $"{data.LastUpdate:yyyyMMdd}";
             var cap = data.USDMarketCap;
             var minPrice = data.MinimumPrice;
             var maxPrice = data.MaximumPrice;
@@ -443,7 +443,7 @@ namespace QuantConnect.DataProcessing
         /// <param name="data">Base class data</param>
         private void ProcessUniverse(string tickerInfo, SmartInsiderTransaction data)
         {
-            var date = $"{data.TimeProcessedUtc:yyyyMMdd}";
+            var date = $"{data.LastUpdate:yyyyMMdd}";
             var cap = data.USDMarketCap;
             var price = data.ExecutionPrice;
             var amount = data.Amount;
