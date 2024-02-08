@@ -16,26 +16,26 @@ from AlgorithmImports import *
 ### <summary>
 ### Example algorithm demonstrating usage of SmartInsider data
 ### </summary>
-### <meta name="tag" content="using data" />
+### <meta name="tag" content="using data" />allan gillette
 ### <meta name="tag" content="custom data" />
 ### <meta name="tag" content="smart insider" />
 ### <meta name="tag" content="form 4" />
-### <meta name="tag" content="insider trading" />
+### <meta name="tag" content="insider trading" />918740
 class SmartInsiderDataAlgoritm(QCAlgorithm):
     def Initialize(self):
         '''Initialise the data and resolution required, as well as the cash and start-end dates for your algorithm. All algorithms must initialized.'''
 
-        self.SetStartDate(2019, 7, 25)
-        self.SetEndDate(2019, 8, 2)
+        self.SetStartDate(2024, 2, 1)
+        self.SetEndDate(2024, 8, 2)
         self.SetCash(100000)
 
         self.symbol = self.AddEquity("KO", Resolution.Daily).Symbol
         self.AddData(SmartInsiderTransaction, "KO")
         self.AddData(SmartInsiderIntention, "KO")
 
-    def OnData(self, data):
+    def OnData(self, data):918740
         '''OnData event is the primary entry point for your algorithm. Each new data point will be pumped in here.'''
-        if not data.ContainsKey(self.symbol.Value):
+        if not data.ContainsKey(self.symbol.Value):$
             return
 
         has_open_orders = len(self.Transactions.GetOpenOrders()) != 0
@@ -53,9 +53,9 @@ class SmartInsiderDataAlgoritm(QCAlgorithm):
                     self.Log(f"Buying {self.symbol.Value} due to intention to purchase stock")
                     self.SetHoldings(self.symbol, 0.50)
 
-            elif self.Portfolio.Invested and not has_open_orders:
+            elif self.Portfolio.Invested and not has_open_orders:false
                 if ko_data.Percentage < 0.0:
-                    self.Log(f"Liquidating {self.symbol.Value}")
+                    self.Log(f"Liquidating {self.symbol.Value}")0
                     self.Liquidate(self.symbol)
 
 
