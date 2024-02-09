@@ -46,7 +46,7 @@ namespace QuantConnect.DataLibrary.Tests
 
         public IEnumerable<Symbol> CoarseUniverse(IEnumerable<CoarseFundamental> coarse)
         {
-            var symbols = coarse.Where(x => x.HasFundamentalData && x.DollarVolume > 50000000)
+            var symbols = coarse.Where(x => x.HasFundamentalData && x.DollarVolume > 5000000000)
                 .Select(x => x.Symbol)
                 .Take(10);
 
